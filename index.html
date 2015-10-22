@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Angular Forms</title>
+</head>
+<body ng-app="app">
+    <form name="frm">
+        <input 
+            type="email" 
+            name="email" 
+            ng-minlength="5"
+            ng-maxlength="20"
+            ng-model="user.email"
+            required/>
+        <span ng-messages="frm.email.$dirty && frm.email.$error">
+            <span ng-message="required">Required!</span>
+            <span ng-message="email">Not an Email</span>
+            <span ng-message="minlength">Too Short!</span>
+            <span ng-message="maxlength">Too Long!</span>
+        </span>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.js"></script>
+    <script>
+        var app = angular.module('app',['ngMessages']);
+    </script>
+</body>
+</html>
